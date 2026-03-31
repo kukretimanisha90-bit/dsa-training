@@ -1,15 +1,11 @@
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
-        """
-        :type list1: Optional[ListNode]
-        :type list2: Optional[ListNode]
-        :rtype: Optional[ListNode]
-        """
         dummy = ListNode(0)
         current = dummy
 
@@ -23,11 +19,7 @@ class Solution(object):
 
             current = current.next
 
-        # attach remaining nodes
-        if list1:
-            current.next = list1
-        else:
-            current.next = list2
+        # Attach remaining nodes
+        current.next = list1 if list1 else list2
 
         return dummy.next
-        
